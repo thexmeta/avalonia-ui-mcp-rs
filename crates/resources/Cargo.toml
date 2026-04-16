@@ -1,0 +1,41 @@
+[package]
+name = "avalonia-mcp-resources"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "Knowledge base and resources for AvaloniaUI MCP Server"
+keywords = ["mcp", "avalonia", "resources", "knowledge-base"]
+categories = ["development-tools"]
+build = "build.rs"
+
+include = [
+    "Cargo.toml",
+    "build.rs",
+    "src/**",
+    "data/**",
+]
+
+[dependencies]
+# Core crate
+avalonia-mcp-core = { path = "../core", version = "0.1.0" }
+
+rmcp = { workspace = true }
+
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# JSON Schema
+schemars = { workspace = true }
+
+# Async Runtime
+tokio = { workspace = true }
+
+# Logging & Tracing
+tracing = { workspace = true }
+
+# Error Handling
+anyhow = { workspace = true }

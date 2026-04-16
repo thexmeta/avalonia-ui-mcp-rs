@@ -1,0 +1,105 @@
+[package]
+name = "avalonia-ui-mcp-rs"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+readme.workspace = true
+description.workspace = true
+keywords.workspace = true
+categories.workspace = true
+
+[dependencies]
+avalonia-mcp-core = { version = "0.1.0" }
+avalonia-mcp-services = { version = "0.1.0" }
+avalonia-mcp-resources = { version = "0.1.0" }
+avalonia-mcp-tools = { version = "0.1.0" }
+avalonia-mcp-server = { version = "0.1.0" }
+
+[workspace]
+members = [
+    "crates/core",
+    "crates/services",
+    "crates/tools",
+    "crates/resources",
+    "crates/server",
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+license = "MIT"
+authors = ["AvaloniaUI MCP Contributors"]
+repository = "https://github.com/thexmeta/avalonia-ui-mcp-rs"
+homepage = "https://github.com/thexmeta/avalonia-ui-mcp-rs"
+documentation = "https://github.com/thexmeta/avalonia-ui-mcp-rs/tree/main/avalonia-rust-mcp"
+readme = "README.md"
+description = "Rust-based Model Context Protocol server for AvaloniaUI development assistance"
+keywords = ["mcp", "avalonia", "xaml", "dotnet", "cross-platform"]
+categories = ["development-tools", "gui"]
+
+[workspace.dependencies]
+# MCP Protocol
+rmcp = { version = "0.11.0", features = ["reqwest", "transport-io", "uuid"] }
+
+# Async Runtime - CRITICAL: Use 'full' for macros, sync, net, fs, signal
+tokio = { version = "1.48", features = ["full"] }
+
+# HTTP Server
+axum = { version = "0.8", features = ["macros"] }
+tower = "0.5"
+tower-http = { version = "0.6", features = ["trace", "cors", "timeout"] }
+hyper = { version = "1.0", features = ["full"] }
+hyper-util = { version = "0.1", features = ["full"] }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# JSON Schema
+schemars = "0.8"
+
+# Logging & Tracing
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+tracing-opentelemetry = "0.29"
+
+# Error Handling
+thiserror = "2.0"
+anyhow = "1.0"
+
+# HTTP Client (async)
+reqwest = { version = "0.12", features = ["json", "rustls-tls"] }
+
+# Utilities
+uuid = { version = "1.0", features = ["v4", "serde"] }
+async-trait = "0.1"
+
+# Configuration
+dotenvy = "0.15"
+
+# Testing
+mockall = "0.13"
+
+# Benchmarking
+criterion = { version = "0.5", features = ["html_reports"] }
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
+
+[profile.dev]
+opt-level = 0
+debug = true
+
+[profile.bench]
+opt-level = 3
+debug = true

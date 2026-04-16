@@ -1,0 +1,40 @@
+[package]
+name = "avalonia-mcp-services"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "Core services for AvaloniaUI MCP Server (cache, telemetry, validation, file operations)"
+keywords = ["mcp", "avalonia", "services"]
+categories = ["development-tools"]
+
+[dependencies]
+# Core crate
+avalonia-mcp-core = { path = "../core", version = "0.1.0" }
+
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# Async Runtime
+tokio = { workspace = true }
+
+# Logging & Tracing
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+tracing-opentelemetry = { workspace = true }
+
+# Error Handling
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+
+# HTTP Client
+reqwest = { workspace = true }
+
+# Utilities
+uuid = { workspace = true }
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["test-util", "macros"] }

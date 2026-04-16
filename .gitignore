@@ -1,0 +1,49 @@
+# Rust
+/target/
+**/target/
+**/*.rs.bk
+Cargo.lock
+
+# Build
+/dist/
+/build/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Environment
+.env
+.env.local
+
+# Beads (local issue tracking)
+/.beads/*.db
+/.beads/*.lock
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Test coverage
+*.gcno
+*.gcda
+coverage/
+tarpaulin-report.html
+
+# Benchmarks
+/criterion/
+/docs
+QWEN.md
+*.bat
+*.ps1
+AGENTS.md
+/.beads
+/.specstory

@@ -1,0 +1,43 @@
+[package]
+name = "avalonia-mcp-tools"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "MCP tools for AvaloniaUI development assistance"
+keywords = ["mcp", "avalonia", "tools", "xaml"]
+categories = ["development-tools"]
+
+[dependencies]
+# Core crate
+avalonia-mcp-core = "0.1.0"
+
+# Services crate
+avalonia-mcp-services = "0.1.0"
+
+# Resources crate
+avalonia-mcp-resources = "0.1.0"
+
+# MCP Protocol
+rmcp = { workspace = true }
+
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# JSON Schema
+schemars = { workspace = true }
+
+# Async Runtime
+tokio = { workspace = true }
+
+# Logging & Tracing
+tracing = { workspace = true }
+
+# Error Handling
+anyhow = { workspace = true }
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["test-util", "macros"] }

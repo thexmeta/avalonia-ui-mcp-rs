@@ -1,0 +1,35 @@
+[package]
+name = "avalonia-mcp-core"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "Core types, traits, and error handling for AvaloniaUI MCP Server"
+keywords = ["mcp", "avalonia", "core"]
+categories = ["development-tools"]
+
+[dependencies]
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# JSON Schema
+schemars = { workspace = true }
+
+# Error Handling
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+
+# MCP Protocol
+rmcp = { workspace = true }
+
+# Async Runtime
+tokio = { workspace = true }
+
+# HTTP Client (for error conversion)
+reqwest = { workspace = true }
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["test-util"] }
